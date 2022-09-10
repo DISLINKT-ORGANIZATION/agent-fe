@@ -13,6 +13,7 @@ import CompanyView from "@/views/company/CompanyView.vue";
 import JobPositionView from "@/views/company/JobPositionView.vue";
 import JobPositionsView from "@/views/company/JobPositionsView.vue";
 import LandingView from "@/views/LandingView.vue";
+import CreateJobOfferView from "@/views/company/CreateJobOfferView.vue";
 
 import HomeView from "@/views/HomeView.vue";
 
@@ -90,6 +91,12 @@ const routes = [
         component: LandingView,
         name: "LandingView",
         path: "/landing",
+      },
+      {
+        component: CreateJobOfferView,
+        name: "CreateJobOfferView",
+        path: "/job-offer",
+        beforeEnter: guardRouteLoggedIn,
       },
     ]
   },

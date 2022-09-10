@@ -24,7 +24,6 @@
 <script>
 import NavigationBar from "@/components/nav/NavigationBar.vue";
 const apiURL = "authentication/users/";
-
 export default {
   name: "HomeView",
   components: {
@@ -67,7 +66,6 @@ export default {
 .container {
   height: 100% !important;
 }
-
 .description {
   font-family: "Baloo2", Helvetica, Arial;
 }
