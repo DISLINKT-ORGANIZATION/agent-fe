@@ -40,8 +40,6 @@ export default {
     return {
       drawer: true,
       user: {
-        firstName: String,
-        lastName: String,
         username: String
       }
     };
