@@ -126,6 +126,18 @@
             </v-list-item-content>
           </v-list-item>
         </router-link>
+        <router-link v-if="role === 'ROLE_AGENT'" :to="{ name: 'CreateJobOfferView' }" v-slot="{ navigate }">
+          <v-list-item @click="navigate">
+            <v-list-item-icon>
+              <v-icon>mdi-account-plus-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title style="font-size: 18px"
+                >Job Offer</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
       </v-list-item-group>
     </v-list>
   </v-container>
