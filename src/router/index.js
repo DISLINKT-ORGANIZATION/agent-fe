@@ -2,6 +2,14 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import LoginView from "@/views/auth/LoginView.vue";
+import RegisterView from "@/views/auth/RegisterView.vue";
+import AccountView from "@/views/user/AccountView.vue";
+import RegisterCompanyRequestView from "@/views/company/RegisterCompanyRequestView.vue";
+import RegisterCompanyRequestsView from "@/views/company/RegisterCompanyRequestsView.vue";
+import ApprovedRegisterCompanyRequestsView from "@/views/company/ApprovedRegisterCompanyRequestsView.vue";
+import CompanyInfoView from "@/views/company/CompanyInfoView.vue";
+import CompaniesView from "@/views/company/CompaniesView.vue";
+
 import HomeView from "@/views/HomeView.vue";
 
 Vue.use(VueRouter);
@@ -13,12 +21,46 @@ const routes = [
     path: "/login",
   },
   {
+    component: RegisterView,
+    name: "RegisterView",
+    path: "/register",
+  },
+  {
     component: HomeView,
     name: "HomeView",
     path: "/",
     beforeEnter: guardRouteLoggedIn,
     children: [
-  
+      {
+        component: AccountView,
+        name: "AccountView",
+        path: "/account"
+      },
+      {
+        component: RegisterCompanyRequestView,
+        name: "RegisterCompanyRequestView",
+        path: "/register-company-request"
+      },
+      {
+        component: RegisterCompanyRequestsView,
+        name: "RegisterCompanyRequestsView",
+        path: "/register-company-requests"
+      },
+      {
+        component: ApprovedRegisterCompanyRequestsView,
+        name: "ApprovedRegisterCompanyRequestsView",
+        path: "/approved-register-company-request"
+      },
+      {
+        component: CompanyInfoView,
+        name: "CompanyInfoView",
+        path: "/company-info"
+      },
+      {
+        component: CompaniesView,
+        name: "CompaniesView",
+        path: "/companies"
+      },
     ]
   },
   

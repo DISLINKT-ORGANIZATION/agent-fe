@@ -15,16 +15,8 @@
             class="description d-flex justify-center"
             style="font-size: 25px"
           >
-            <!--{{ user.firstName }} {{ user.lastName }}-->
-            Placeholder
+            @{{ user.username }}
           </v-list-item-title>
-          <v-list-item-subtitle
-            class="description d-flex justify-center"
-            style="font-size: 18px"
-          >
-            <!--@{{ user.username }}-->
-            Placeholder
-          </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -48,7 +40,79 @@
           </v-list-item>
         </router-link>
         <v-divider></v-divider>
+        <router-link :to="{ name: 'AccountView' }" v-slot="{ navigate }">
+          <v-list-item @click="navigate">
+            <v-list-item-icon>
+              <v-icon>mdi-account-box-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title style="font-size: 18px"
+                >Account</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
         <v-divider></v-divider>
+        <router-link :to="{ name: 'CompaniesView' }" v-slot="{ navigate }">
+          <v-list-item @click="navigate">
+            <v-list-item-icon>
+              <v-icon>mdi-account-multiple-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title style="font-size: 18px"
+                >Companies</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
+        <router-link v-if="role === 'ROLE_AGENT'" :to="{ name: 'CompanyInfoView' }" v-slot="{ navigate }">
+          <v-list-item @click="navigate">
+            <v-list-item-icon>
+              <v-icon>mdi-account-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title style="font-size: 18px"
+                >My Company</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
+        <router-link v-if="role === 'ROLE_ADMINISTRATOR'" :to="{ name: 'RegisterCompanyRequestsView' }" v-slot="{ navigate }">
+          <v-list-item @click="navigate">
+            <v-list-item-icon>
+              <v-icon>mdi-account-multiple-plus-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title style="font-size: 18px"
+                >Requests</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
+        <router-link v-if="role === 'ROLE_USER'" :to="{ name: 'RegisterCompanyRequestView' }" v-slot="{ navigate }">
+          <v-list-item @click="navigate">
+            <v-list-item-icon>
+              <v-icon>mdi-account-multiple-plus-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title style="font-size: 18px"
+                >Register Company</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
+        <router-link v-if="role === 'ROLE_USER'" :to="{ name: 'ApprovedRegisterCompanyRequestsView' }" v-slot="{ navigate }">
+          <v-list-item @click="navigate">
+            <v-list-item-icon>
+              <v-icon>mdi-check-circle-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title style="font-size: 18px"
+                >Approved Request</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
       </v-list-item-group>
     </v-list>
   </v-container>
@@ -58,6 +122,7 @@
 export default {
   data: () => ({
     selectedItem: null,
+    role: localStorage.getItem('role') 
   }),
   props: {
     user: Object,
