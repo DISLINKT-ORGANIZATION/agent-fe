@@ -3,7 +3,7 @@
       <v-row align="center" justify="center">
         <v-col cols="8">
           <v-card class="mt-10">
-            <v-card-title class="description ml-5" ><v-col>Companies</v-col></v-card-title>
+            <v-card-title class="description ml-5" ><v-col>Job Positions</v-col></v-card-title>
             <v-row class="ml-9 mr-9">
               <v-progress-linear
                 indeterminate
@@ -18,10 +18,10 @@
                 sm="11"
                 md="6"
                 lg="3"
-                v-for="c in companies"
-                :key="c.id"
+                v-for="j in jobPositions"
+                :key="j.id"
               >
-                <company-card v-bind:company="c" />
+                <job-position-card v-bind:jobPosition="j" />
               </v-col>
             </v-row>
           </v-card-text>
@@ -32,30 +32,30 @@
   </template>
   
   <script>
-  const apiURL = "company";
-  import CompanyCard from "@/components/company/CompanyCard.vue";
+  const apiURL = "job-position";
+  import JobPositionCard from "@/components/company/JobPositionCard.vue";
   export default {
-    name: "CompaniesView",
+    name: "JobPositionsView",
     components: {
-        CompanyCard,
+        JobPositionCard,
     },
     data() {
       return {
-        companies: [],
+        jobPositions: [],
         show: false
       };
     },
     mounted() {
-      this.getCompanies();
+      this.getJobPositions();
     },
     methods: {
-        getCompanies() {
+        getJobPositions() {
         this.show = true;
         this.axios
           .get(apiURL)
           .then((response) => {
             console.log(response)
-            this.companies = response.data;
+            this.jobPositions = response.data;
             this.show = false;
           })
           .catch((error) => {
