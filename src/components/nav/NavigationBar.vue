@@ -27,7 +27,7 @@
         color="primary"
         class="description"
       >
-        <router-link :to="{ name: 'Home' }" v-slot="{ navigate }">
+        <router-link :to="{ name: 'LandingView' }" v-slot="{ navigate }">
           <v-list-item @click="navigate">
             <v-list-item-icon>
               <v-icon>mdi-home-outline</v-icon>
@@ -53,6 +53,18 @@
           </v-list-item>
         </router-link>
         <v-divider></v-divider>
+        <router-link :to="{ name: 'JobPositionsView' }" v-slot="{ navigate }">
+          <v-list-item @click="navigate">
+            <v-list-item-icon>
+              <v-icon>mdi-briefcase-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title style="font-size: 18px"
+                >Job Positions</v-list-item-title
+              >
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
         <router-link :to="{ name: 'CompaniesView' }" v-slot="{ navigate }">
           <v-list-item @click="navigate">
             <v-list-item-icon>
@@ -65,6 +77,7 @@
             </v-list-item-content>
           </v-list-item>
         </router-link>
+        <v-divider></v-divider>
         <router-link v-if="role === 'ROLE_AGENT'" :to="{ name: 'CompanyInfoView' }" v-slot="{ navigate }">
           <v-list-item @click="navigate">
             <v-list-item-icon>

@@ -9,6 +9,10 @@ import RegisterCompanyRequestsView from "@/views/company/RegisterCompanyRequests
 import ApprovedRegisterCompanyRequestsView from "@/views/company/ApprovedRegisterCompanyRequestsView.vue";
 import CompanyInfoView from "@/views/company/CompanyInfoView.vue";
 import CompaniesView from "@/views/company/CompaniesView.vue";
+import CompanyView from "@/views/company/CompanyView.vue";
+import JobPositionView from "@/views/company/JobPositionView.vue";
+import JobPositionsView from "@/views/company/JobPositionsView.vue";
+import LandingView from "@/views/LandingView.vue";
 
 import HomeView from "@/views/HomeView.vue";
 
@@ -29,37 +33,63 @@ const routes = [
     component: HomeView,
     name: "HomeView",
     path: "/",
-    beforeEnter: guardRouteLoggedIn,
     children: [
       {
         component: AccountView,
         name: "AccountView",
-        path: "/account"
+        path: "/account",
+        beforeEnter: guardRouteLoggedIn,
       },
       {
         component: RegisterCompanyRequestView,
         name: "RegisterCompanyRequestView",
-        path: "/register-company-request"
+        path: "/register-company-request",
+        beforeEnter: guardRouteLoggedIn,
       },
       {
         component: RegisterCompanyRequestsView,
         name: "RegisterCompanyRequestsView",
-        path: "/register-company-requests"
+        path: "/register-company-requests",
+        beforeEnter: guardRouteLoggedIn,
       },
       {
         component: ApprovedRegisterCompanyRequestsView,
         name: "ApprovedRegisterCompanyRequestsView",
-        path: "/approved-register-company-request"
+        path: "/approved-register-company-request",
+        beforeEnter: guardRouteLoggedIn,
       },
       {
         component: CompanyInfoView,
         name: "CompanyInfoView",
-        path: "/company-info"
+        path: "/company-info",
+        beforeEnter: guardRouteLoggedIn,
       },
       {
         component: CompaniesView,
         name: "CompaniesView",
-        path: "/companies"
+        path: "/companies",
+        beforeEnter: guardRouteLoggedIn,
+      },
+      {
+        component: CompanyView,
+        name: "CompanyView",
+        path: "/company/:id",
+      },
+      {
+        component: JobPositionsView,
+        name: "JobPositionsView",
+        path: "/job-positions",
+        beforeEnter: guardRouteLoggedIn,
+      },
+      {
+        component: JobPositionView,
+        name: "JobPositionView",
+        path: "/job-position/:id",
+      },
+      {
+        component: LandingView,
+        name: "LandingView",
+        path: "/landing",
       },
     ]
   },

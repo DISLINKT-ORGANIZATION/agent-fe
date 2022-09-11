@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer v-if="user.id !== undefined" v-model="drawer" app>
       <navigation-bar v-bind:user="user"></navigation-bar>
     </v-navigation-drawer>
 
@@ -11,12 +11,6 @@
         >AGENT APPLICATION</v-toolbar-title
       >
       <v-spacer />
-      <v-btn class="ml-3" icon>
-        <v-icon>mdi-account-outline</v-icon>
-      </v-btn>
-      <v-btn class="ml-3" icon>
-        <v-icon>mdi-message-outline</v-icon>
-      </v-btn>
       <v-btn class="ml-3" icon @click="logout()">
         <v-icon>mdi-logout</v-icon>
       </v-btn>
@@ -55,12 +49,14 @@ export default {
     getLoggedInUser() {
       let userId = localStorage.getItem("id");
       console.log(userId);
+      console.log(this.user.id)
       this.axios.get(
           apiURL + userId
       ).then((response) => {
         this.user = response.data;
       }).catch((error) => {
-        this.$root.snackbar.error(error.response.data.message);
+        console.log(error)
+        //this.$root.snackbar.error(error.response.data.message);
       })
     }
   }
