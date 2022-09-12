@@ -15,6 +15,7 @@ import JobPositionsView from "@/views/company/JobPositionsView.vue";
 import LandingView from "@/views/LandingView.vue";
 import CreateJobOfferView from "@/views/company/CreateJobOfferView.vue";
 
+
 import HomeView from "@/views/HomeView.vue";
 
 Vue.use(VueRouter);
