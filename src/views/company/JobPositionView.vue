@@ -154,6 +154,7 @@ import SalaryCard from "@/components/company/SalaryCard.vue";
           .then((response) => {
             console.log(response);
             this.$root.snackbar.success("Successfully added salary!");
+            this.getJobPosition();
           })
           .catch((error) => {
             console.log(error);

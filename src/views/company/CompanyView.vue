@@ -192,6 +192,7 @@ import SelectionProcessCard from "@/components/company/SelectionProcessCard.vue"
           .then((response) => {
             console.log(response);
             this.$root.snackbar.success("Successfully added rating!");
+            this.getCompany();
           })
           .catch((error) => {
             console.log(error);
@@ -217,6 +218,7 @@ import SelectionProcessCard from "@/components/company/SelectionProcessCard.vue"
           .then((response) => {
             console.log(response);
             this.$root.snackbar.success("Successfully added comment!");
+            this.getCompany();
           })
           .catch((error) => {
             console.log(error);
@@ -242,6 +244,7 @@ import SelectionProcessCard from "@/components/company/SelectionProcessCard.vue"
           .then((response) => {
             console.log(response);
             this.$root.snackbar.success("Successfully added selection process experience!");
+            this.getCompany();
           })
           .catch((error) => {
             console.log(error);
