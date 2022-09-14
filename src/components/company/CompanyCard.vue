@@ -1,6 +1,6 @@
 <template>
     <v-hover v-slot:default="{ hover }">
-      <v-card elevation="8" class="mx-auto my-12" max-width="500" min-width="200" >
+      <v-card elevation="8" class="mx-auto my-12 mr-5" max-width="500" min-width="190" >
         <v-img width="100%" height="200" src="@/assets/company.png">
           <v-expand-transition>
             <div

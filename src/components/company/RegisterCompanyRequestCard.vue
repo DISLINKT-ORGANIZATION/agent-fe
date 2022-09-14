@@ -1,5 +1,5 @@
 <template>
-      <v-card elevation="8" class="mx-auto my-12" max-width="374" >
+      <v-card elevation="8" class="mx-auto my-12 ml-4" max-width="390" min-width="200">
         <v-card-title
           >{{ request.name }}<v-spacer /></v-card-title>
         <v-card-subtitle
@@ -29,7 +29,6 @@
     },
     methods: {
       approve() {
-        //this.$router.push({name: "CompanyDetailsView", params: {id: this.company.id}});
         this.show = true;
         this.axios
           .get(apiURL + this.request.id)

@@ -76,7 +76,7 @@
         <v-row>
           <v-col class="mt-6 ml-8 mr-8">
             <v-btn
-              color="main-screen"
+              color="#FF7766"
               @click="register()"
               block
               class="description"
@@ -89,7 +89,7 @@
         <v-row align="center" justify="center" class="pt-2">
           <router-link
             :to="{ name: 'LoginView' }"
-            style="text-decoration: none; color: #666bff"
+            style="text-decoration: none; color: #FF7766"
             ><p class="description" style="font-size: 20px">
               Already have an account? Log in
             </p></router-link
